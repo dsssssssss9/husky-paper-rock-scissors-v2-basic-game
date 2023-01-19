@@ -73,7 +73,7 @@ Rock = 0
 Paper = -1
 Scissors = 1
 Maqueen = 0
-Player = 999
+Player = 0
 Result = 0
 basic.forever(function () {
     huskylens.request()
