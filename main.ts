@@ -1,5 +1,4 @@
 input.onButtonPressed(Button.A, function () {
-    basic.clearScreen()
     Maqueen = randint(-1, 1)
     if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
         Player = Rock
@@ -10,7 +9,7 @@ input.onButtonPressed(Button.A, function () {
     } else {
         Player = 999
     }
-    basic.showNumber(Maqueen)
+    basic.showNumber(Player)
 })
 function Compare () {
     Result = 2
