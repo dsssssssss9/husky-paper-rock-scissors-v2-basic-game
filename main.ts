@@ -1,3 +1,17 @@
+// When Button A pressed do....
+// 
+// Set player to 999 in case Husky does  not recognise anything  
+// 
+// Set MaQueen to random of -1,0,1 ( Paper, Rock , Scissors)
+// 
+// Set Player to 0,-1,1 ( Rock, Paper, Scissors) depending on what ID Husky sees
+// 
+// If Player = 999 ( nothing in Husky view ) show sad face on MicroBit & Display "Anyone There ? " on Husky Screen
+// 
+// Otherwise call "compare " function to work out who won . ..
+// If Draw display D on MicroBit & "Draw" on Husky
+// If Maqueen show "m" on MicroBit & "MaQueen Wins" on Husky
+// If Player display "P" on MicroBit & "Player Wins" on Husky 
 input.onButtonPressed(Button.A, function () {
     Player = 999
     Maqueen = randint(-1, 1)
@@ -22,11 +36,16 @@ input.onButtonPressed(Button.A, function () {
             huskylens.writeOSD("Player Wins!!", 100, 100)
         }
     } else {
-        basic.showIcon(IconNames.No)
+        basic.showIcon(IconNames.Sad)
         huskylens.writeOSD("Anyone There?", 100, 100)
     }
 })
+// Function to work out who wins / draw
+// 
+// Algorithm is by Jeffrey  from "Never To Late To Learn" Website
+// shorturl.at/afrzC
 function Compare () {
+    // If Result = 2 then game is a Draw
     Result = 2
     if (Player != Maqueen) {
         if (Math.abs(Player) == Math.abs(Maqueen)) {
