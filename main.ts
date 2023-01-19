@@ -1,6 +1,5 @@
 input.onButtonPressed(Button.A, function () {
     Player = 999
-    basic.pause(1000)
     Maqueen = randint(-1, 1)
     if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
         Player = Rock
@@ -24,6 +23,7 @@ input.onButtonPressed(Button.A, function () {
         }
     } else {
         basic.showIcon(IconNames.No)
+        huskylens.writeOSD("Anyone There?", 100, 100)
     }
 })
 function Compare () {
