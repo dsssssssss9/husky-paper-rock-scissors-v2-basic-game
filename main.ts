@@ -1,5 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     Maqueen = randint(-1, 1)
+    huskylens.request()
     if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
         Player = Rock
     } else if (huskylens.isAppear(2, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
@@ -9,7 +10,19 @@ input.onButtonPressed(Button.A, function () {
     } else {
         Player = 999
     }
-    basic.showNumber(Player)
+    if (Player != 999) {
+        basic.clearScreen()
+        Compare()
+        if (Result == 2) {
+            basic.showString("D")
+        } else if (Result == Maqueen) {
+            basic.showString("M")
+        } else if (Result == Player) {
+            basic.showString("P")
+        }
+    } else {
+        basic.showIcon(IconNames.No)
+    }
 })
 function Compare () {
     Result = 2
@@ -38,9 +51,9 @@ basic.pause(2000)
 Rock = 0
 Paper = -1
 Scissors = 1
-Maqueen = 999
+Maqueen = 0
 Player = 999
-Result = 999
+Result = 0
 basic.forever(function () {
-    huskylens.request()
+	
 })
