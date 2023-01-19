@@ -1,3 +1,18 @@
+// Function to work out who wins / draw
+// 
+// Algorithm is by Jeffrey  from "Never To Late To Learn" Website
+// shorturl.at/afrzC
+function Compare () {
+    // If Result = 2 then game is a Draw
+    Result = 2
+    if (Player != Maqueen) {
+        if (Math.abs(Player) == Math.abs(Maqueen)) {
+            Result = Math.max(Player, Maqueen)
+        } else {
+            Result = Math.min(Player, Maqueen)
+        }
+    }
+}
 // When Button A pressed do....
 // 
 // Set player to 999 in case Husky does  not recognise anything  
@@ -9,8 +24,8 @@
 // If Player = 999 ( nothing in Husky view ) show sad face on MicroBit & Display "Anyone There ? " on Husky Screen
 // 
 // Otherwise call "compare " function to work out who won . ..
-// If Draw display D on MicroBit & "Draw" on Husky
-// If Maqueen show "m" on MicroBit & "MaQueen Wins" on Husky
+// If Draw display "D" on MicroBit & "Draw" on Husky
+// If Maqueen show "M" on MicroBit & "MaQueen Wins" on Husky
 // If Player display "P" on MicroBit & "Player Wins" on Husky 
 input.onButtonPressed(Button.A, function () {
     Player = 999
@@ -40,21 +55,15 @@ input.onButtonPressed(Button.A, function () {
         huskylens.writeOSD("Anyone There?", 100, 100)
     }
 })
-// Function to work out who wins / draw
+// Initialise connection to Husky
 // 
-// Algorithm is by Jeffrey  from "Never To Late To Learn" Website
-// shorturl.at/afrzC
-function Compare () {
-    // If Result = 2 then game is a Draw
-    Result = 2
-    if (Player != Maqueen) {
-        if (Math.abs(Player) == Math.abs(Maqueen)) {
-            Result = Math.max(Player, Maqueen)
-        } else {
-            Result = Math.min(Player, Maqueen)
-        }
-    }
-}
+// If successful switch to "Object Classification " mode
+// Clear Husky Display  
+// 
+// Set Name for Each Husky Id ( not necessary but helps )
+// Display "Rock Paper Scissors " on Husky screen 
+// 
+// Initialise variables 
 let Result = 0
 let Player = 0
 let Maqueen = 0
@@ -75,6 +84,7 @@ Scissors = 1
 Maqueen = 0
 Player = 0
 Result = 0
+// Get rID result of what Husky sees ( if known ) 
 basic.forever(function () {
     huskylens.request()
 })
